@@ -11,5 +11,5 @@ jobs:
     name: 'Imprimir secret variable'
     runs-on: ubuntu-latest
     steps:
-      -run: 
-        echo ${{ secrets.SECRET_VARIABLE_ONE }}
+      - run: 
+         echo ${{ secrets.SECRET_VARIABLE_ONE }}

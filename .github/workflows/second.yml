@@ -1,0 +1,40 @@
+name: Second
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  job1:
+    name: 'Mi primer Job'
+    runs-on: ubuntu-20.04
+    steps:
+      - name: 'Mi primer step'
+        uses: actions/checkout@v3
+      - run: python3 eati.py "Workflow" "Dependencies"
+  job2:
+    name: 'Job2'
+    runs-on: windows-2019
+    steps:
+      - run: Get-Command
+
+  job3:
+    needs: [job1,job2]
+    name: 'Job3'
+    runs-on: ubuntu-latest
+    steps:
+      - run: env
+
+  job4:
+    name: 'Job4'
+    runs-on: ubuntu-latest
+    steps:
+      - run: cat /etc/*release
+
+  job5:
+    name: 'Job5'
+    needs: [job3,job4]
+    runs-on: ubuntu-latest
+    steps:
+     - run: echo "Fin Workflow"

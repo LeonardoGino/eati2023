@@ -1,0 +1,16 @@
+﻿name: Cifrado
+
+on: 
+  push:
+    branches:
+      -main
+    
+
+job:
+  job1: 
+    name: 'Imprimir secret variable'
+    runs-on: ubuntu-latest
+    steps:
+      -run: 
+        echo ${{ secrets.SECRET_VARIABLE_ONE }}
+    

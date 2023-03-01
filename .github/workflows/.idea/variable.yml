@@ -1,0 +1,37 @@
+﻿name: Variable
+
+env:
+  WORKFLOW_VARIABLE: "WORKFLOW_GLOBAL"
+  SCOPE: "SCOPE_GLOBAL"
+
+on:
+  push:
+    branches:
+      - workflow-4-2
+
+jobs:
+  job1:
+    name: 'Primer job'
+    runs-on: ubuntu-latest
+    env:
+      JOB_VARIABLE: "JOB_VARIABLE"
+      SCOPE: "SCOPE_JOB"
+    steps:
+      - name: 'Primer step'
+        env:
+          STEP_VARIABLE : "STEP_VARIABLE"
+          SCOPE: "SCOPE_STEP"
+        run: |
+          echo ${{WORKFLOW_VARIABLE}}
+          echo ${{JOB_VARIABLE}}
+          echo ${{STEP_VARIABLE}}
+          echo ${{SCOPE}}
+      - name : 'Segundo step'
+        run:
+          echo ${{SCOPE}}
+  job2:
+    name: 'Segundo job'
+    runs-on: ubuntu-latest
+    steps:
+      run:
+        echo ${{SCOPE}}

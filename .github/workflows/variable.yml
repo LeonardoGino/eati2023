@@ -22,16 +22,16 @@ jobs:
           STEP_VARIABLE : "STEP_VARIABLE"
           SCOPE: "SCOPE_STEP"
         run: |
-          echo ${{WORKFLOW_VARIABLE}}
-          echo ${{JOB_VARIABLE}}
-          echo ${{STEP_VARIABLE}}
-          echo ${{SCOPE}}
+          echo ${{ env.WORKFLOW_VARIABLE }}
+          echo ${{ env.JOB_VARIABLE }}
+          echo ${{ env.STEP_VARIABLE }}
+          echo ${{ env.SCOPE }}
       - name : 'Segundo step'
         run:
-          echo ${{SCOPE}}
+          echo ${{ env.SCOPE }}
   job2:
     name: 'Segundo job'
     runs-on: ubuntu-latest
     steps:
      - run:
-        echo ${{SCOPE}}
+        echo ${{ env.SCOPE }}

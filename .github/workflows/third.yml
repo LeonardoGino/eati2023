@@ -24,4 +24,4 @@ jobs:
          path: ./anotherbanch
      - run: |
           cat ./main/message.txt
-          cat ./anotherbranch/message.txt |
+          cat ./anotherbranch/message.txt

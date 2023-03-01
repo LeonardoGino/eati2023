@@ -3,7 +3,7 @@
 on:
   push:
     branches:
-      - workflow-3
+      - main
 
 jobs:
  job1:
